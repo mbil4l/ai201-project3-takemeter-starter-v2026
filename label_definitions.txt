@@ -1,10 +1,9 @@
-# Your label definitions, one per line, as `label: definition`.
+# Label definitions for formula1@lemmy.world, one per line, as `label: definition`.
 #
-# Copy these from your README so the baseline is judged on exactly the
-# definitions you wrote. baseline.py reads this file.
-#
-# Delete the examples below and put yours in.
+# Copied from the README's Label Taxonomy so the baseline is judged on exactly
+# these words. baseline.py slots each one into "This post is {}.", so they're
+# phrased to read as the end of that sentence.
 
-analysis: makes an argument backed by a specific, checkable fact
-hot_take: a confident claim with no support offered
-reaction: an immediate response to something that just happened
+analysis: an argument or explanation about F1 where a specific, checkable detail (a lap, gap, position, points total, tyre call, rule or quote) carries the point
+hot_take: a confident general claim about drivers, teams, races, the FIA or the sport, with no checkable support offered
+reaction: a response to a moment (something on track, a headline, another comment) through feeling, narration or a joke, with no general claim to argue with
