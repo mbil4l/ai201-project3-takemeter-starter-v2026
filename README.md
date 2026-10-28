@@ -455,29 +455,79 @@ it found.
 <!-- Five criteria across three seeds. The notebook's section 6 prints the
      spread table; the Target and Verdict columns are yours. -->
 
+**Run conditions:** notebook sections 1–7 run top to bottom, section 6 with
+`RUN_LABEL = "before"` → `results_three_seeds_before.json`. Device **`cpu`**
+(PyTorch `2.14.1+cpu`, no CUDA build on Windows). Every setting is the unit 5
+default: 3 epochs, learning rate 2e-5, batch 16, 128 tokens. Each seed: 164
+train / 36 val / 36 test, stratified. About 47 seconds of training per seed.
+Seed 42 reproduced unit 5's `results.json` exactly, so CPU training is
+deterministic here.
+
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 |---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+| 1. Overall accuracy | ≥ 0.60 on every seed | 0.500 | 0.500 | 0.583 | **MISSED** |
+| 2. No label left behind | F1 ≥ 0.40 `analysis`; ≥ 0.50 `hot_take` and `reaction`; every seed | A 0.444 · H **0.300** · R 0.647 | A **0.000** · H **0.444** · R 0.636 | A 0.588 · H 0.500 · R 0.645 | **MISSED** |
+| 3. Balance | every label 25–40% of `labels.csv` | 27.5 / 34.7 / 37.7% | 27.5 / 34.7 / 37.7% | 27.5 / 34.7 / 37.7% | **MET** |
+| 4. Agreement with staff set | ≥ 23 / 30 | one measurement, not per seed: **pending the staff key** (see Agreement Report) | — | — | **PENDING** |
+| 5. Confidence means something | most-sure third − least-sure third ≥ 0.20 on every seed | 0.417 (0.667 − 0.250) | 0.500 (0.917 − 0.417) | 0.333 (0.667 − 0.333) | **MET** |
+
+A = `analysis`, H = `hot_take`, R = `reaction`. Bold cells are the ones under
+target. Criterion 3 counts the file, so it can't move between seeds.
+
+**The spread table, as section 6 printed it:**
+
+| Measure | Seed 42 | Seed 7 | Seed 2024 | Spread |
+|---|---|---|---|---|
+| Overall accuracy | 0.500 | 0.500 | 0.583 | 0.083 |
+| Macro F1 | 0.464 | 0.360 | 0.578 | 0.218 |
+| F1 — `analysis` | 0.444 | 0.000 | 0.588 | 0.588 |
+| F1 — `hot_take` | 0.300 | 0.444 | 0.500 | 0.200 |
+| F1 — `reaction` | 0.647 | 0.636 | 0.645 | 0.011 |
+
+**Reading the spread.** Accuracy moved 8.3 points, under the 10-point line for
+an unstable measure, but that's one test post in either direction of three
+(each post is 2.8 points). The real instability is per label: `analysis` F1
+runs from 0.000 to 0.588. On seed 7 the model **never predicted `analysis` at
+all**. It sent 30 of 36 test posts to `reaction`. `reaction` is the only
+stable number (0.636–0.647), and it's stable because the model guesses it by
+default, not because it found it. Its precision is 0.47–0.59 on every seed.
 
 ### Confusion matrix
 
-<!-- ⚠️ TYPED AS A MARKDOWN TABLE. The notebook prints one ready to paste.
-     An image of a matrix earns nothing. -->
+Seed 42, as notebook section 7 prints it (rows = true label, columns = the
+model's guess):
 
-| true \ predicted |  |  |  |
+| true \ predicted | analysis | hot_take | reaction |
 |---|---|---|---|
-| **** |  |  |  |
-| **** |  |  |  |
-| **** |  |  |  |
+| **analysis** | 4 | 4 | 2 |
+| **hot_take** | 2 | 3 | 7 |
+| **reaction** | 2 | 1 | 11 |
+
+Section 7 only prints the first seed, so here are all three seeds' test splits
+summed (108 predictions), from `results_three_seeds_before.json`:
+
+| true \ predicted | analysis | hot_take | reaction |
+|---|---|---|---|
+| **analysis** | 9 | 9 | 12 |
+| **hot_take** | 3 | 13 | 20 |
+| **reaction** | 3 | 4 | 35 |
+
+Column totals: the model guessed `reaction` 67 times out of 108 (62%) when
+39% of the posts were `reaction`, and guessed `analysis` only 15 times for 30
+real ones.
 
 **My biggest off-diagonal number, and what it means:**
 <!-- Not "the model made mistakes" — WHICH boundary it didn't learn, and which
      direction. "7 real analysis posts were called hot_take and only 3 went the
      other way" is a direction, not just an error rate. -->
+
+7 real `hot_take` posts were called `reaction` on seed 42 (20 across all three
+seeds) and only 1 went the other way (4 across three), so the model hasn't
+learned my `hot_take`/`reaction` line, "is there a general claim someone could
+argue with?", and resolves every doubt toward `reaction`. The same lean shows
+on `analysis` (12 to `reaction`, 3 back). So this is mostly a model that
+falls back on the most common label, not one boundary on its own. Milestone 4
+works out which.
 
 
 
