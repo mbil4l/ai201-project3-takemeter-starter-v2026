@@ -1,0 +1,226 @@
+seed,gold,predicted,confidence,p_analysis,p_hot_take,p_reaction,kind,words,text,note
+42,reaction,reaction,0.386,0.309,0.305,0.386,news,27,">  This change is gonna screw with teams that don’t do well on hards (cough merc cough)…
+
+So Perez, Hamilton and Russel out in Q1 now :D",pre-labelled
+42,reaction,reaction,0.434,0.26,0.306,0.434,post,7,Incredible performance from both Norris and Piastri! ,pre-labelled
+42,analysis,hot_take,0.354,0.305,0.354,0.342,news,26,"There can't be more than one GP with the same name, which is why we've had names like the Luxembourg, San Marino, European, Pacific GPs, etc. ",pre-labelled
+42,hot_take,reaction,0.456,0.233,0.311,0.456,live,47,"Damn, Lawson knocking out Max in Q2... Something really went wrong at RB. And Alpha Tauri will have a hard choice somewhere this year. Lawson seems quite competitive, he deserves a seat. How patient will they be with Yuki if a rookie is threatening him like this",pre-labelled
+42,analysis,analysis,0.424,0.424,0.299,0.277,post,33,Russell confirms that the sun was in the eye in on the straight after turn 2. Could be why both perez and sainz did not realise that they were drifting towards each other,pre-labelled
+42,analysis,analysis,0.349,0.349,0.335,0.317,live,45,"That would've been driver of the day for me too. From 19th to 8th in the first half of the race. He needs to make fewer mistakes like these. Then again, I guess he hasn't had much experience with a car that can overtake others.",pre-labelled
+42,analysis,reaction,0.338,0.332,0.33,0.338,live,23,There was a message about an unsafe release that was deemed no further investigation necessary. Don't think it was shown on F1TV either.,pre-labelled
+42,hot_take,reaction,0.444,0.229,0.327,0.444,post,20,Yeah I kind of agree. Norris should have eaten antonelli and sainz even today. He also bottled the start (again).,pre-labelled
+42,hot_take,reaction,0.38,0.259,0.361,0.38,news,27,"Yes, on the surface it might look predictable with Verstappen so much better than the rest, but this season there are often battles/unpredictability for up to p2. ",pre-labelled
+42,reaction,reaction,0.491,0.226,0.283,0.491,live,13,"Piastri pitting again? Edit: ah, was his first
+
+Damn that was bad timing",pre-labelled
+42,analysis,reaction,0.351,0.308,0.341,0.351,news,62,"I get what you're saying but Lawson was immediate box office in f2 and then (almost) won super formula and DTM. Doohan had his moments. He wasn't bad.
+
+Tbf Sergeant's junior career was impressive, maybe less so I'm f2. de Vries was worse overall IMHO.
+
+Mazepin was pure shit in f2 and pure shit in f1 because you cannot polish a turd.",pre-labelled
+42,analysis,analysis,0.414,0.414,0.304,0.282,post,37,"Yep, Max finished the race 28 seconds ahead of Ricciardo in P8. He created that gap in 12 laps since the final SC. Haas could capitalize on rain and earn points, but winning the race? No way.",pre-labelled
+42,hot_take,analysis,0.352,0.352,0.297,0.351,news,57,"Totally. No one's fault but his own tho. And his teammate had a such great weekend in comparison. George made such smart decisions in the sprint, and then when it came to the race, he just kept his head down and did what needed done. Was awesome to see! Totally deserved to finish out front of Hamilton.",pre-labelled
+42,hot_take,reaction,0.396,0.277,0.327,0.396,live,30,"Out of the last few races I think this was one of the better ones, it had several fun moments.
+
+Also, please fix your qualifying Checo, you’re killing me here",pre-labelled
+42,analysis,hot_take,0.379,0.345,0.379,0.275,news,58,Plenty of things in F1 are random checks. Weighing the cars during quali is random. The randomness is enough of a deterrent that teams do not run cars below the minimum weight. But things like plank wear should be checked for all because the teams cannot accurately know how much the plank is worn especially on sprint weekends.,pre-labelled
+42,reaction,reaction,0.387,0.3,0.312,0.387,post,61,"While taking each other out of the points wasn't on my bingo card for the event, I was enjoying the fight up until that point. imo while it felt like Lando had the advantage the overtake wasn't guaranteed. Started getting '21 vibes - if they keep this up...
+
+(Still want to see Albon get a podium at RBR though - rrrobbed.)",pre-labelled
+42,reaction,reaction,0.402,0.264,0.334,0.402,live,31,"Max is 15 second up the road. I was hoping for a better year with some actual racing involved. 
+
+Ah well. Guess I’ll try again in 2026 with the rule changes. ",pre-labelled
+42,reaction,reaction,0.447,0.221,0.332,0.447,live,11,We almost got road hazzards with the ballsy groundhogs popping up,pre-labelled
+42,reaction,analysis,0.363,0.363,0.309,0.329,post,37,"What a race, I was glued to the screen from the start to the VSC period. Oscar's overtake and defense were brilliant, Leclerc's defense against Perez before the crash was unbelievable too. What a race and racecraft.",pre-labelled
+42,hot_take,reaction,0.401,0.269,0.33,0.401,news,24,"Albon continues his mega season. Perez is gone mentally at the moment, don't know what has happened to him over the past few months.",pre-labelled
+42,hot_take,hot_take,0.382,0.32,0.382,0.299,post,34,"A race where cars cannot pass each other is called a parade
+
+Monaco should be a specialty race, maybe a clock race of 20 laps with only 5 cars on the track or so",pre-labelled
+42,reaction,analysis,0.423,0.423,0.309,0.268,post,116,"Race was alright until that safety car made it spicy. Wonder why it took so long to pull into the pits - we could've had at least 1 extra lap of racing.
+
+Mega 10 points for Hulk and Sauber. Watching him overtake a Ferrari was surreal.
+
+Leclerc's risky tire strategy yesterday worked out well today.
+
+Hadjar with another strong points finish.
+
+Alonso finally with points on board.
+
+10s penalty for Verstappen seems lenient. He got 3 penalty points for it apparently and with 11 penalty points is 1 point away from a race ban.
+
+Another engine failure for Antonelli is bizarre.
+
+It's a shame that Lawson wasn't able to get a point after all that brawling.","pre-labelled; hard case: reaction vs analysis - recap with penalty-point maths, most words are recap"
+42,hot_take,reaction,0.417,0.28,0.303,0.417,live,16,"Alonso is 3rd, stroll 19th (and by a mile)
+
+Just get stroll out of there, honestly",pre-labelled; hard case: analysis vs hot_take - the post that forced the decision rule
+42,reaction,hot_take,0.353,0.315,0.353,0.332,news,54,"Today's race was quite exciting! It seems like there hasn't been much passing the previous few races, but there was plenty throughout the 71 laps today. 
+If the rest of season is like today, I'd be happy. However, I know it is very track dependent on whether there are amply passing opportunities or not.",pre-labelled
+42,reaction,reaction,0.435,0.242,0.324,0.435,live,10,"O shiiitttt not the second Ferrari!
+
+Piastri chose violence there.",pre-labelled
+42,hot_take,analysis,0.377,0.377,0.329,0.294,news,73,"The front of the field has not been exciting this year. I feel like the mid-pack battle has been one of the best I remember in years.
+
+I also love seeing Hamilton struggle with a car and Russell put pressure on him. I’m not a Hamilton fan at all but I have to say he has had some tremendous drives this year.
+
+Alonso’s performance this year has also been very exciting to watch. ",pre-labelled
+42,reaction,reaction,0.401,0.272,0.327,0.401,live,19,Everybody boxing to get fastest lap and Norris simply tries to go for it with his old hards lol,pre-labelled
+42,reaction,reaction,0.455,0.226,0.319,0.455,live,17,That message from Toto seemed like a polite way of saying “shut the f up and drive” ,pre-labelled
+42,hot_take,hot_take,0.378,0.256,0.378,0.366,post,32,"Formula E has had some bangers around here believe it or not, but maybe that's because of their gimmicks. I don't really follow FE but I've caught a couple of Monaco E-Prixes.",pre-labelled
+42,analysis,analysis,0.347,0.347,0.324,0.329,live,36,"Austrian commentary just said that Marko had a meeting with Lawson today. Apparently either him or Tsunoda will be out of Red Bull's F1 program next year, as they need to make room for Arvin Lindblad.",pre-labelled
+42,reaction,reaction,0.449,0.242,0.309,0.449,post,21,Congratulations to Lewis. It has to feel amazing to win at home after a drought in his successful career. Well done. ,pre-labelled
+42,reaction,reaction,0.502,0.228,0.27,0.502,live,21,"Verstappen overtaking Checo without DRS as if making a point. Ridiculous.
+
+EDIT: my bad, he definitely had time to open it.",pre-labelled
+42,hot_take,hot_take,0.368,0.325,0.368,0.308,news,31,"The track feels too narrow for the cars these days, similar (but not to the extent of) Monaco. Unlike Monaco, there's enough surrounding space to expand the width of the track.",pre-labelled
+42,analysis,hot_take,0.379,0.314,0.379,0.307,news,32,"Pretty much every Motorsport body does it this way iirc. Nascar doesn’t inspect every car after every race in excruciating detail, they just spot check anything they think could have been manipulated. ",pre-labelled
+42,hot_take,reaction,0.372,0.263,0.365,0.372,news,35,"US laws don't apply outside of the US.
+
+I get that you're really into your nationalism and American exceptionalism over there, but surely you understand that.
+
+US law is as relevant here as Japanese law.",pre-labelled
+42,analysis,hot_take,0.345,0.334,0.345,0.321,post,69,"I don't think it's that straight forward. Norris dove so deep he almost went off track himself. He didn't leave Verstappen space so Verstappen had to go off track. Implying Norris had the right for the position sets a dangerous precedent where you can simply divebomb deep into the corner, cut off the entire corner and the person you want to pass has to give the position to you.",pre-labelled
+7,analysis,reaction,0.363,0.324,0.313,0.363,live,33,"Why are they so obsessed about the Max-Perez pit stop. It wouldn’t matter, Max would pass Perez in a couple of laps anyways. He got the gap down from 10 to 2.5 sec. ",pre-labelled
+7,hot_take,reaction,0.359,0.282,0.359,0.359,post,32,"Formula E has had some bangers around here believe it or not, but maybe that's because of their gimmicks. I don't really follow FE but I've caught a couple of Monaco E-Prixes.",pre-labelled
+7,reaction,reaction,0.471,0.221,0.307,0.471,live,8,Ah another slow stop for Norris. McLaren disasterclass.,pre-labelled
+7,reaction,reaction,0.447,0.225,0.328,0.447,live,8,Man everybody is fighting like crazy this weekend,pre-labelled
+7,hot_take,hot_take,0.354,0.301,0.354,0.345,live,55,"I don't think the full wets would make things worse even, it's these fucking ground effect regs diffusers that cause all the spray. Which would be acceptable if we still had good racing in the dry, but the FIA have given up on that too and just let the teams bring back dirty air anyway.",pre-labelled
+7,reaction,reaction,0.399,0.279,0.322,0.399,live,68,">Its really hard to even get excited about the prospect of a Ferrari front row, because you just know they will somehow contrive to get in each others way, let Max through on lap one, and then make a pigs ear of their strategy and finish 5th and 6th
+
+Well that was as predictable as the sun rising and setting.
+
+I completely failed to predict Checo's stupidity though ",pre-labelled
+7,hot_take,reaction,0.383,0.24,0.377,0.383,news,29,Yeah they probably can't terminate his contract immediately without some legal trouble or huge payout. So he'll be on their payroll for a while longer but not involved anymore. ,pre-labelled
+7,hot_take,reaction,0.378,0.304,0.318,0.378,live,41,"Let's see how aggressive he and Lewis get on lap 1
+
+You have to think that Lewis has nothing to gain by settling for 2nd, and Max wouldn't let his own kid win a backyard race, so he's not conceding anything ",pre-labelled
+7,reaction,reaction,0.357,0.286,0.356,0.357,live,18,They need to spray the track with water at a random time to give us wet racing 🤪,pre-labelled
+7,analysis,reaction,0.343,0.341,0.315,0.343,post,33,Russell confirms that the sun was in the eye in on the straight after turn 2. Could be why both perez and sainz did not realise that they were drifting towards each other,pre-labelled
+7,hot_take,reaction,0.368,0.282,0.35,0.368,news,37,"> Really wish the organizers at tracks like Hockenheim or Sepang had the budget to host a race.
+
+If only there was an Mercedes-AMG Petronas F1 Team with connections to both countries that would push for that...",pre-labelled; hard case: reaction vs hot_take - sarcasm restates as a claim
+7,analysis,reaction,0.383,0.267,0.35,0.383,live,31,That's the kind of judgement the attacking driver must make though.. Will there be enough space or not? And Piastri's tires were blocking because he wasn't breaking at the right moment. ,pre-labelled
+7,reaction,reaction,0.341,0.333,0.326,0.341,post,116,"Race was alright until that safety car made it spicy. Wonder why it took so long to pull into the pits - we could've had at least 1 extra lap of racing.
+
+Mega 10 points for Hulk and Sauber. Watching him overtake a Ferrari was surreal.
+
+Leclerc's risky tire strategy yesterday worked out well today.
+
+Hadjar with another strong points finish.
+
+Alonso finally with points on board.
+
+10s penalty for Verstappen seems lenient. He got 3 penalty points for it apparently and with 11 penalty points is 1 point away from a race ban.
+
+Another engine failure for Antonelli is bizarre.
+
+It's a shame that Lawson wasn't able to get a point after all that brawling.","pre-labelled; hard case: reaction vs analysis - recap with penalty-point maths, most words are recap"
+7,reaction,reaction,0.378,0.281,0.341,0.378,live,46,"Mclaren is looking insane. That car is rapid and this isn’t where they thought they’d be good but they’re fucking nailing it. Same with their Pitstops. A few years ago we were clowning how bad their pit crews were, this is a far cry from that",pre-labelled
+7,reaction,reaction,0.425,0.246,0.329,0.425,live,14,"Praying for rain 🌧️
+
+[Damn, prayed too hard I hate safety car starts 🤦‍♂️]",pre-labelled
+7,reaction,reaction,0.42,0.238,0.341,0.42,live,19,Everybody boxing to get fastest lap and Norris simply tries to go for it with his old hards lol,pre-labelled
+7,analysis,reaction,0.361,0.28,0.36,0.361,post,30,"Marko is just telling Austrian TV he is sceptical whether Red Bull will be near the top next year, given that they're developing their own engine for the first time",pre-labelled
+7,reaction,reaction,0.427,0.248,0.325,0.427,live,17,Please let the McLaren upgrades translate to decent race pace at Silverstone - I live in hope...,pre-labelled
+7,analysis,reaction,0.375,0.291,0.334,0.375,post,60,"Well Daniel was not faster than Yuki in quali or the through the race... So it made no sense to me the call either.
+
+It was BS during the race anyway because the call came in waaaaay too late to make any difference... Daniel would not have been in the point unless there was a crash in front of him",pre-labelled
+7,reaction,reaction,0.426,0.241,0.332,0.426,live,21,"At least Perez made it past the first ~~corner~~ straight this time.
+
+Aaaand he picked up a penalty already. This man..",pre-labelled
+7,hot_take,reaction,0.381,0.27,0.349,0.381,news,109,"""I will purposely go out of my way to put you on your f****** head in the wall""
+
+This is George speak, this is not something Max said either, it just does not sound right. But if you think about how George would phrase this sentence then it absolutely 100% tracks. This is ***his*** version of what ***he*** thinks Max would say and sound like and he formulated that sentence in his head, ready to be used in public to try and steer the conversation and ""guilt"" towards Max.
+
+The more I think about it the more I realize how much of a snake that little boy george  is...",pre-labelled
+7,hot_take,hot_take,0.358,0.291,0.358,0.351,live,45,"It's not necessarily easier to design in a deterrent, but I think it results in more entertaining racing. All things equal I would prefer to not watch racing ""evened out"" with time penalties. You're completely right about it not being feasible in every corner though. ",pre-labelled
+7,hot_take,reaction,0.38,0.302,0.317,0.38,post,58,"Was an OK race but if the hards were just a little less durable to make 2 stopping a little more viable it would've really helped the excitement factor.
+
+Would like to hear more about tsunoda's wing failure as I don't think we've seen a front wing just give like that all on it's own in a while. ",pre-labelled
+7,analysis,hot_take,0.36,0.308,0.36,0.332,news,63,"i'm sure you'd do that individually, but not in an official capacity. This comparison is very funny, F1 used to race in Sochi and Putin himself handed over the trophies. This only stopped when international sanctions were placed on Rusia. There are none on Trump so no, an F1 team cannot cause an international incident by itself. Stop pretending you don't understand this",pre-labelled
+7,hot_take,reaction,0.374,0.265,0.361,0.374,post,26,Carlos is schooling Leclerc at the moment. Yet everything we always hear is how Ferrari is throwing money at Leclerc because of how good he is.,pre-labelled
+7,reaction,reaction,0.414,0.261,0.326,0.414,live,31,"Max is 15 second up the road. I was hoping for a better year with some actual racing involved. 
+
+Ah well. Guess I’ll try again in 2026 with the rule changes. ",pre-labelled
+7,analysis,reaction,0.408,0.281,0.312,0.408,live,15,"226 point lead on his teammate, and 2nd place. Max had been unbelievable this season.",pre-labelled; hard case: analysis vs hot_take - stat sits beside verdict but carries it
+7,reaction,reaction,0.466,0.215,0.319,0.466,live,13,"Piastri pitting again? Edit: ah, was his first
+
+Damn that was bad timing",pre-labelled
+7,reaction,reaction,0.408,0.273,0.32,0.408,live,23,"Sainz 👏👏
+
+Edit: Kmag P6. Well done. Don't know if he can hold onto it though.
+
+Lawson also did pretty well with P10.",pre-labelled
+7,analysis,reaction,0.386,0.292,0.323,0.386,post,38,"Total Verstappen meltdown.
+
+All McLaren needed to do was pit Oscar first. But they didn't, so they tried to make it right.
+
+EDIT You have to feel bad for Oscar. This is how he gets his first win.",pre-labelled
+7,analysis,hot_take,0.346,0.32,0.346,0.334,live,58,"So far I have only seen Max and Red Bull complain. Which makes sense because they set up their car for a wet race.
+
+The more relevant question is the thoughts of drivers who drove in the mid-field or end of the field. Because those are the ones who would be in danger, not Max Verstappen in P4.",pre-labelled
+7,reaction,reaction,0.405,0.256,0.339,0.405,live,21,Will Buxton just said Checo is ‘Keen as mustard’ and it caught me off guard. Never heard that one before lol. ,pre-labelled
+7,analysis,reaction,0.347,0.315,0.338,0.347,live,45,"That would've been driver of the day for me too. From 19th to 8th in the first half of the race. He needs to make fewer mistakes like these. Then again, I guess he hasn't had much experience with a car that can overtake others.",pre-labelled
+7,hot_take,reaction,0.378,0.266,0.356,0.378,post,45,"Race was great. Track is great. Show is the typical US nonsense on another level. Some like it, some hate it. I don't doubt it's good for $$$ but for the locals it's a disaster. Unless you're running a hotel on the Strip of course.",pre-labelled
+7,hot_take,hot_take,0.371,0.291,0.371,0.338,live,34,Haas is embarrassingly bad right now. This is the exact same set of problems they had in the last Gen of cars. They’ve clearly got something fundamentally wrong in their processes that causes this,pre-labelled
+7,hot_take,hot_take,0.36,0.289,0.36,0.35,news,39,"I really don't get whats so bad about a 6AM race, if I did watch the races live I'd actually be more likely to be able to watch one at 6AM rather than in the middle of the day. ",pre-labelled
+2024,hot_take,reaction,0.384,0.289,0.327,0.384,live,9,This is the best race since the 2021 season,pre-labelled
+2024,hot_take,hot_take,0.377,0.343,0.377,0.28,post,72,"FIA fucked up again.  Once again, cars are getting stuck behind each other because of dirty air and the only passes are because of battery power.  It looks like racing, it's fake, and with Oscar Pastrami, dangerous when the electric motor kicks in. 
+
+Once all teams learn to harvest and use the battery power the same way, we will go back to the processions of two formulas ago and slot car  racing. 
+",pre-labelled
+2024,hot_take,hot_take,0.355,0.305,0.355,0.34,live,39,"I've been rooting for them all season just because I wanted a break from last year's Verstappen dominance, but you can't look at the performance of the team this year and say they properly *deserve* to win the title.",pre-labelled
+2024,hot_take,reaction,0.343,0.325,0.332,0.343,live,16,"Alonso is 3rd, stroll 19th (and by a mile)
+
+Just get stroll out of there, honestly",pre-labelled; hard case: analysis vs hot_take - the post that forced the decision rule
+2024,analysis,reaction,0.377,0.268,0.355,0.377,live,37,"Oh my god that was dangerous from Ocon, Gasly is absolutely right to be pissed.
+
+Ocon literally did what he did to Perez back at Force India - overtake stupidly and leave no room for his teammate.",pre-labelled; hard case: reaction vs analysis - live and heated but argues from a named precedent
+2024,reaction,reaction,0.43,0.244,0.326,0.43,post,8,This was so weird. Cooldown room delivered again.,pre-labelled
+2024,hot_take,analysis,0.352,0.352,0.349,0.299,post,39,My guess is they underestimated the cooling requirements as the race was very warm. They trying to walk a razors edge with their performance as they have a good chance of second place this season between the three teams. ,pre-labelled
+2024,analysis,analysis,0.36,0.36,0.36,0.28,live,47,"Good question. Spa is special in that, after the end, the cars immediately come into the pits through the pit exit, they don't go around the circuit (because it's so long). I wonder if that yellow flag is because of that. Could the the smoke too though.",pre-labelled
+2024,reaction,reaction,0.403,0.258,0.339,0.403,live,12,Imagine a timeline where Jos Verstappen is actually right. What an embarrassment...,pre-labelled
+2024,hot_take,reaction,0.396,0.264,0.34,0.396,post,20,Yeah I kind of agree. Norris should have eaten antonelli and sainz even today. He also bottled the start (again).,pre-labelled
+2024,analysis,analysis,0.375,0.375,0.339,0.286,post,76,"The real punishment is that he is now on 11 penalty points for the next two races, even a reasonably minor infraction could result in a race ban. 
+
+If he did get a race ban what would be interesting is how RB would fill that seat, would Liam get recalled for a race as he has recent experience of car? Isack can a crack at it? Who would replace either of them in the Racing Bull? ",pre-labelled
+2024,reaction,reaction,0.421,0.26,0.32,0.421,live,8,Oh look an overtake.....I have seen enough...Bottas DOTD,pre-labelled
+2024,reaction,hot_take,0.355,0.315,0.355,0.329,news,22,"God help us all if he debuts in the era of Fernando Alonso as FiA BOSS like he joked. 
+
+***MAXIMUM PENALTIES INTENSIFIES***",pre-labelled
+2024,hot_take,reaction,0.409,0.256,0.335,0.409,post,13,Couldn’t agree more. Best race in years. Goosebumps hearing the cooldown lap radio,pre-labelled; hard case: reaction vs hot_take - 'best race in years' is a ranking
+2024,hot_take,hot_take,0.383,0.284,0.383,0.333,news,35,"US laws don't apply outside of the US.
+
+I get that you're really into your nationalism and American exceptionalism over there, but surely you understand that.
+
+US law is as relevant here as Japanese law.",pre-labelled
+2024,reaction,reaction,0.415,0.255,0.331,0.415,live,8,They are giving max priority over Perez? Oof,pre-labelled
+2024,reaction,hot_take,0.36,0.313,0.36,0.327,news,61,"The wife and I watch almost every race. I don’t mind Red Bull dominating at the moment since they’re my favorite team to rag on but it’s undeniable they have a great car. 
+
+I’m basically a fan of everyone on the grid except Max since I find him and his dad to be annoying. Karen
+Horner is also pretty funny 😂",pre-labelled
+2024,analysis,hot_take,0.349,0.329,0.349,0.321,news,46,They have toned it down. Post 2021 season ending they received a lot of flak and have owned up to it. This is why they bring in a Dutch guest Jules Seegers often to even the tides (even though he isn't a die hard Max fan).,pre-labelled
+2024,analysis,reaction,0.376,0.288,0.335,0.376,live,22,No need to pit. They have already changed to a second compound at the red flag. They are going to the end,pre-labelled
+2024,reaction,reaction,0.409,0.257,0.334,0.409,live,12,Good save by Hamilton to not get stuck in the gravel there,pre-labelled
+2024,reaction,analysis,0.356,0.356,0.345,0.299,live,24,"Now the true pace advantage of the McLaren cars will be revealed. At least for the first few laps, their pace has been incredible.",pre-labelled
+2024,analysis,hot_take,0.36,0.346,0.36,0.294,live,71,"Anybody dislike the production today even if the race has a great end? It felt like it took so long to see replays of any significant incidents/moves, if we saw them at all. 
+
+Plus, it was great to watch the four racing at the end for so long, but why take away the time splits? They just showed like lap times between two drivers at a time for all of it. ",pre-labelled
+2024,reaction,reaction,0.374,0.283,0.343,0.374,post,37,The watery stuff during the podium ceremony would have been cool indeed. The way they tried to show it detached from everything was dumb though. Props to DC for making it look like he did actually care.,pre-labelled
+2024,reaction,reaction,0.39,0.276,0.334,0.39,live,10,"O shiiitttt not the second Ferrari!
+
+Piastri chose violence there.",pre-labelled
+2024,reaction,reaction,0.362,0.3,0.339,0.362,live,25,"Four racing laps to go, utterly tedious in the podium places for almost the entire race but some exciting battles going on down the field!",pre-labelled
+2024,hot_take,hot_take,0.364,0.349,0.364,0.287,live,55,"I don't think the full wets would make things worse even, it's these fucking ground effect regs diffusers that cause all the spray. Which would be acceptable if we still had good racing in the dry, but the FIA have given up on that too and just let the teams bring back dirty air anyway.",pre-labelled
+2024,analysis,hot_take,0.364,0.32,0.364,0.316,news,46,Almost all management contracts have a fraternisation clause. If any of these leaks are true (I don't see how they are going to prove it at this point and it all seems a bit funky to me) then it would almost definitely be a fireable offence.,pre-labelled
+2024,hot_take,reaction,0.396,0.27,0.333,0.396,live,23,Perez should have got P2 here really - would be interesting to hear his radio on the DRS and the initial pitstop call,pre-labelled
+2024,reaction,reaction,0.395,0.265,0.34,0.395,live,14,I absolutely believe Antonelli is capable of holding Max back for two more laps,pre-labelled
+2024,reaction,hot_take,0.341,0.32,0.341,0.339,post,31,Thought for sure McLaren made the wrong call there and Hamilton would fly by. But very impressed by Lando there. He earned that 2nd place. Hopefully they can keep this up.,pre-labelled
+2024,analysis,analysis,0.351,0.351,0.337,0.313,live,22,"Most likely VER will get a 3 place penalty for his pitlane impeding.
+
+Edit: and maybe another 3 places for impeding Tsunoda",pre-labelled
+2024,analysis,analysis,0.38,0.38,0.326,0.294,live,35,"Max was probably coasting most of the race while Perez was pushing. He still finished over half a minute behind Max. That was not only a shit qualifying performance, but also a bad performance today. ",pre-labelled
+2024,reaction,reaction,0.418,0.247,0.335,0.418,live,8,Man everybody is fighting like crazy this weekend,pre-labelled
+2024,hot_take,hot_take,0.346,0.343,0.346,0.311,post,28,Will Perez have a seat *next race*? This is Red Bull - if they decide the seat is Ricciardo's for next year they might as well switch now.,pre-labelled
+2024,hot_take,hot_take,0.361,0.293,0.361,0.346,post,29,I would argue the cost cap makes this a new type of domination. They are setting records before the summer break and they will keep extending them well past ,pre-labelled
+2024,analysis,analysis,0.365,0.365,0.354,0.281,news,85,"On a sprint weekend, the planks undergo 19 more laps of wear than at a typical event. In this case that’s almost 65 more miles of racing on the same plank. Holding the ”randomly selected cars” to the same floor allowance as if it was a standard race weekend but then NOT checking all the teams when you have a 50% failure rate is just plain wrong. Either have a different allowance on the sprint weekend, check ALL the cars or don’t check at all.",pre-labelled

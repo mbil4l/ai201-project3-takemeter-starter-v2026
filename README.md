@@ -540,13 +540,100 @@ works out which.
 
 | # | Criterion | Target | Verdict | How I decided |
 |---|---|---|---|---|
-| 1 |  |  |  |  |
-| 2 |  |  |  |  |
-| 3 |  |  |  |  |
-| 4 |  |  |  |  |
-| 5 |  |  |  |  |
+| 1 | Overall accuracy | ≥ 0.60 on every seed | **MISSED** | 0.500, 0.500, 0.583. Not one of the three seeds reaches 0.60. The best, 0.583, is 21 of 36, one post short of 0.611. |
+| 2 | No label left behind | F1 ≥ 0.40 `analysis`, ≥ 0.50 `hot_take` and `reaction`, every seed | **MISSED** | Fails on two of three seeds: `hot_take` 0.300 (seed 42) and 0.444 (seed 7), `analysis` 0.000 (seed 7). Only seed 2024 clears every floor, and `hot_take` does it at exactly 0.500. `reaction` passes everywhere. |
+| 3 | Balance | every label 25–40% of `labels.csv` | **MET** | Counted from the file: 65 / 82 / 89 of 236 = 27.5 / 34.7 / 37.7%. `reaction` sits 2.3 points under the cap. |
+| 4 | Agreement with staff set | ≥ 23 / 30 | **MET (provisional)** | 30 / 30, but against a derived blind-rater key, not the TF's (see Agreement Report). The criterion names the staff set, so this verdict must be re-called on the real key. AI-vs-AI agreement is also a weaker test than the one the criterion was written for. |
+| 5 | Confidence means something | most-sure third beats least-sure third by ≥ 0.20, every seed | **MET** | Gaps 0.417, 0.500, 0.333. The smallest is still 4 posts of 12 over the line. Met as written, but read the case against it below. |
+
+**Arguing the opposite verdict on the two closest calls** (the Milestone 4
+"argue against yourself" step):
+
+- *Criterion 1, "it's nearly met":* seed 2024 is one post short and the mean is
+  0.528. But the target was filed as "on every seed", precisely so a friendly
+  split couldn't carry it, and two seeds are a full 3–4 posts short. MISSED
+  stands.
+- *Criterion 5, "it's met on paper only":* this argument is good. The
+  confidences are squeezed into a band from 0.34 to 0.50. The single most
+  confident prediction across all 108 is 0.502. And the "most confident
+  third" is almost entirely `reaction` guesses on live-thread posts (12 of
+  12, 10 of 12 and 12 of 12 across the seeds). So the gap mostly says "the
+  model is surest about its default label on short live posts", not that its
+  confidence would help a person triage. The verdict stays MET, because the
+  criterion measured what it named and the gap is well clear on every seed.
+  But it was met for a reason that doesn't support the use I wrote it for.
+  That's not a broken criterion (it measured fine), so I haven't revised it.
+  It's a criterion I'd write differently next time (see What's Still Broken).
+
+No criterion was revised. All five could be measured and produced a verdict,
+and lowering criterion 1 or 2 because they were missed isn't a revision.
 
 **Diagnoses**
+
+Per-post predictions for all three seeds come from
+[`error_analysis.py`](error_analysis.py), which re-runs section 6 exactly and
+matched `results_three_seeds_before.json` on every seed. The output is in
+`errors_before.csv` and the loss curves in `errors_before_curves.json`.
+
+**Criterion 1 (accuracy) and criterion 2 (every label): the main cause is an
+undertrained model, not the labels.** Of the four usual causes this is closest
+to "a task the model can't reach", except the evidence says it never got
+the chance to try:
+
+- **It barely moved off chance.** 164 training posts at batch 16 is 11 weight
+  updates per epoch, so 33 in total, with the learning rate decaying to zero.
+  Training loss ended at 1.00–1.02 on all three seeds. A model that guesses
+  uniformly across three labels scores ln 3 = 1.099. Validation loss was still
+  falling at epoch 3 on every seed (1.06 → 1.03 → 1.01 on seed 42). The run
+  didn't overfit and plateau; it just stopped.
+- **It is never sure of anything.** The highest confidence on any of 108 test
+  predictions is 0.502. Mean confidence is 0.398 when right and 0.374 when
+  wrong, against 0.333 for a coin with three sides.
+- **So it falls back on the commonest label and on surface cues.** 62% of its
+  guesses are `reaction` (39% of the truth), 42 of 55 live-thread test posts
+  were called `reaction`, and it is right 97% of the time on live-thread
+  `reaction` posts but 25% on news-thread ones. It learned *thread register
+  and length* (the posts it called `reaction` have a median of 17–33 words),
+  not "is there an arguable claim?".
+- **Seed 7's `analysis` F1 of 0.000** is the same thing at its extreme. It
+  never once predicted `analysis`, the smallest label (45 training posts), and
+  sent 8 of 10 to `reaction`.
+- **Why I'm confident it isn't mainly my labels:** a labelling problem shows up
+  on the *pair* that was labelled inconsistently. Here every label leaks the
+  same way, into `reaction`. `analysis` → `reaction` (12) is as one-sided as
+  `hot_take` → `reaction` (20). An error spread over every label that runs
+  toward the prior is a model that hasn't learned, not one that learned
+  contradictory lessons.
+
+**The `hot_take` misses specifically (criterion 2): a genuinely hard pair, plus
+a little loose labelling of my own.** Of the 18 distinct `hot_take` posts called
+`reaction` across the three seeds:
+
+- 8 are race-weekend verdicts or live commentary where a general claim rides
+  on a reaction to the moment. "This is the best race since the 2021 season"
+  is `hot_take` only because of my ranking rule. "Damn, Lawson knocking out
+  Max in Q2… he deserves a seat" opens as a reaction. Nothing on the surface
+  marks the line; it's semantic (does it rank, does it generalise?).
+- 3 are hard cases I flagged in unit 5: the Stroll post, the Mercedes sarcasm,
+  and "Best race in years. Goosebumps…".
+- The rest ("Perez is gone mentally", "Carlos is schooling Leclerc") are
+  plain `hot_take`s by any reading, and an undertrained model missed them.
+
+**What the agreement evidence adds:** this is where it tells a labelling
+problem from a model problem. On the 30 staff posts, rule 2 (claim vs. the
+writer, the same line as my `hot_take`/`reaction` rule) was applied identically
+by me and an independent rater, including on the heated-but-general posts. So
+the rule is applicable and I can apply it. But re-reading my own 18
+race-verdict training posts against my ranking rule found it applied two ways
+on 2–3 of them (the "previous few races" pair in the Agreement Report). That's
+pile (a), real but small. Three inconsistent rows out of 82 `hot_take`s can't
+produce 20 errors. It sharpens the boundary problem; it doesn't cause it.
+
+**So the diagnosis points at training first.** Until the model can fit its own
+164 training posts, "too few examples", "inconsistent boundary" and "task out
+of reach" can't be told apart. Every one of them looks like a model guessing
+`reaction`. That's why my one improvement changes the training run and not the
+labels.
 
 <!-- For each miss: the cause, and how you know. The four common causes are:
      too few examples for a label, a boundary you applied inconsistently, a
