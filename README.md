@@ -791,9 +791,36 @@ against the bigger cause.
 
 ## The Improvement
 
-**What I changed:**
+**What I changed:** one training setting, **`EPOCHS` 3 → 10** in notebook
+section 2. Nothing else: same labels, same taxonomy, same criteria, same
+learning rate (2e-5), batch (16), max length (128), and the same seeds (42, 7,
+2024), so the same test splits. Section 6 re-run with `RUN_LABEL = "after"` →
+`results_three_seeds_after.json`.
 
-**Which diagnosis pointed at it:**
+**Which diagnosis pointed at it:** the main diagnosis for criteria 1 and 2.
+Training loss ended at 1.00–1.02 against 1.099 for pure guessing, validation
+loss was still falling at epoch 3 on every seed, and no prediction went above
+0.502 confidence. That's 33 weight updates, too few to fit 164 posts. The brief
+warns that a diagnosis "usually doesn't" point at training. This one does,
+with numbers. I chose more epochs over a higher learning rate because the loss
+was falling steadily and simply ran out of steps; 10 epochs is 110 updates.
+
+Relabelling the race-verdict boundary was the other candidate. I didn't
+pick it because it touches 2–3 rows, and a model that can't fit its training
+set wouldn't show the difference.
+
+**Prediction, written before the re-run:** training loss well under 1.0,
+confidences spread out (some predictions above 0.8), the `reaction` lean
+shrinks, `analysis` stops collapsing to zero on seed 7, and accuracy rises to
+about 0.60. Criterion 1 is still a coin-flip, because "every seed ≥ 0.60" on
+36-post splits is a high bar. The risk I'm watching: with 164 posts, 10 epochs
+could memorise. If it overfits, validation loss will turn back up in the
+curves.
+
+*Stretch goals, declared before starting:* (1) **a confidence check**, before
+vs. after: are confident predictions right more often than unsure ones, and
+is the model ever actually confident? (2) **a per-label error write-up for
+`hot_take`**, the label with the biggest off-diagonal in the matrix.
 
 ### Run Log — After
 
