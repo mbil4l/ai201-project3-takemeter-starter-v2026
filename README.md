@@ -569,12 +569,62 @@ works out which.
      data/staff_taxonomy.md, not your own — so every argument below is made
      from those definitions and those decision rules. -->
 
-**Agreement rate:** ___ / 30 = ___%
+**Agreement rate:** **pending.** `data/staff_labels.csv` hasn't arrived from
+my TF, and it isn't in the starter. The `data/` folder ships `staff_posts.csv`
+(ids and text only) and `staff_taxonomy.md`, but no labels. `python
+agreement.py` stops at "No file at data/staff_labels.csv". I won't guess the key.
 
-<!-- Nobody grades this number. A 60% who argues every disagreement from the
-     stated rules beats a 95% who wrote "staff was right" nine times. Several
-     of the 30 were chosen because they're genuinely ambiguous — you should be
-     winning some of these. -->
+**What is done:** all 30 posts are labelled under `data/staff_taxonomy.md`,
+saved as [`my_staff_labels.csv`](my_staff_labels.csv) (text copied
+programmatically from `staff_posts.csv`, so every row will match), and
+committed in `16504af` *before* any key existed on this machine. The `note`
+column gives my reasoning on every call that wasn't obvious, written at
+labelling time.
+
+| | `analysis` | `hot_take` | `reaction` |
+|---|---|---|---|
+| My labels | 10 (sp_001–010) | 10 (sp_011–020) | 10 (sp_021–030) |
+
+My labels fall in three clean blocks in file order. I labelled each post on its
+own against the rules, but the pattern is worth flagging: the staff note says
+several of these were picked *because* they're ambiguous. Any place the staff
+key breaks those blocks is a post where the authors read a rule differently
+from me, and those are the ones to argue.
+
+**The calls I expect to be argued, with my reasoning from the staff rules**
+(written before the key, so it can't bend to fit it):
+
+| Post | My label | The other defensible label | Why I chose mine |
+|---|---|---|---|
+| sp_014 "Times are down about 3% since the shoe rules changed, so obviously the shoes are the whole story…" | `hot_take` | `analysis` | It's rule 1's own `hot_take` example with "so obviously" added. The "so" makes the 3% *look* like the reason, but 3% can't carry "the whole story" (nothing rules out other causes) or "the sport has a problem". Rule 1's `analysis` version earns its label by lining up the dates and hedging ("most likely single cause"). This one does neither. |
+| sp_010 "Three of us ran the same session… within 10 seconds…" | `analysis` | `hot_take` | n = 3 and nothing is controlled, so the argument is weak. But rule 1 asks whether the fact is load-bearing, not whether the argument is good, and the claim is scoped to what the 10-second spread shows ("smaller than the noise between three people"). |
+| sp_002, sp_005, sp_007 (personal tracking: sleep, shoes vs mileage, heat) | `analysis` | `reaction` | All three are "about the writer's own experience", which is the `reaction` definition's wording. But none is immediate (eleven weeks, two years, a fortnight), and each uses its own numbers as the reason for a general claim. Rule 3: recency doesn't decide it, a load-bearing fact does. |
+| sp_016 "gel before 90 minutes", sp_017 "peaked in about 2015", sp_018 "slower than 8 minute miles" | `hot_take` | `analysis` | Each number is *part of the claim*, not support for it. A threshold isn't evidence. |
+| sp_020 "Every injury thread on this forum is the same injury…" | `hot_take` | `reaction` | Exasperated, but rule 2 says heated posts can still be `hot_take` if they assert something general, and this asserts something about every thread. |
+| sp_021 "Four minutes off. FOUR.", sp_027 "leaning at about 20 degrees" | `reaction` | `analysis` | The numbers *are* the news (or hyperbole). Nothing is argued from them. |
+| sp_029 "the shoes I set every PB in… bought by accident in the wrong size" | `reaction` | `hot_take` / `analysis` | It invites "shoes don't matter", but never says it. It's a realisation about the writer's own year, which is rule 2's `reaction` side. |
+
+**The post I'd bring to the breakout:** sp_014. Making the strongest case for
+each label from the staff definitions alone (the "working on your own" prompt):
+
+- *For `analysis`:* it contains a specific, checkable stat and the writer
+  explicitly makes it the reason ("…changed, **so** …"). Rule 1's `hot_take`
+  example is marked as such because the 3% is "offered as a flourish, not as
+  the reason", and here it *is* offered as the reason.
+- *For `hot_take`:* rule 1 asks whether the fact *carries* the argument, not
+  whether a connecting word is present. "Obviously … the whole story" is a
+  conclusion the 3% cannot reach on its own; the `analysis` version in the
+  taxonomy only gets there by adding the matching date and hedging.
+
+My call stays `hot_take`. A connecting word is what my *own* first rule asked
+for in unit 5, and I threw that rule out because it split posts that make the
+same move (see the Label Taxonomy). Rule 1 here is my revised rule in other
+words.
+
+**To finish this section when the key arrives:** save it as
+`data/staff_labels.csv` (columns `id,label`), run `python agreement.py`, commit
+`agreement_results.json`, then fill one block below per disagreement and the
+criterion 4 verdict.
 
 **Disagreements**
 
@@ -591,25 +641,25 @@ works out which.
      written rule two different ways on 30 posts, that is direct evidence about
      what you did across your own 200. -->
 
-**1.**
-> *The post:*
+*None listed yet: there is nothing to disagree with until the staff key
+arrives.* One block per disagreement goes here, in this shape:
+
+> *The post:* (sp_0xx, quoted)
 >
 > *Staff said / I said:*
 >
-> *My call, and why:*
+> *My call, and why:* (argued from rules 1–4 in `data/staff_taxonomy.md`;
+> the table above already holds my reasoning for the likeliest ones)
 >
-> *Which pile:*
+> *Which pile:* (a) applied loosely · (b) rule doesn't say · (c) ambiguous,
+> my reading defensible
 
-**2.**
-> *The post:*
->
-> *Staff said / I said:*
->
-> *My call, and why:*
->
-> *Which pile:*
-
-**What the pattern in my disagreements tells me:**
+**What the pattern in my disagreements tells me:** *pending the key.* What to
+look for when it arrives: rule 1 here (does the fact carry the argument?) is
+the same move as my own `analysis`/`hot_take` rule, and rule 2 (claim vs. the
+writer) is my `hot_take`/`reaction` rule. Disagreements that sit in pile (a) on
+rule 2 would be direct evidence that I also applied my own `hot_take`/`reaction`
+line loosely across the 236, the pair the confusion matrix mixes up most.
 
 
 
