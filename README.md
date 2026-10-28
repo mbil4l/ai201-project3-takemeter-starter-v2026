@@ -352,12 +352,55 @@ and are marked `pre-labelled` in the `note` column. The 20 rows in
 <!-- Both models on the same posts. `python baseline.py --trained results.json`
      prints this table for you. -->
 
+Both columns are scored on the same 36 held-out posts in `test_split.csv`
+(seed 42's test split, committed in unit 5). Baseline: `facebook/bart-large-mnli`
+zero-shot, run locally with `python baseline.py --trained results.json`,
+prompted with the three definitions in `label_definitions.txt`. Output in
+`baseline_results.json`.
+
 | Measure | Baseline | Trained | Difference |
 |---|---|---|---|
-| Overall accuracy |  |  |  |
-| Macro F1 |  |  |  |
-| F1 — `label_one` |  |  |  |
-| F1 — `label_two` |  |  |  |
+| Overall accuracy | 0.306 | 0.500 | +0.194 |
+| Macro F1 | 0.196 | 0.464 | +0.268 |
+| F1 — `analysis` | 0.476 | 0.444 | -0.032 |
+| F1 — `hot_take` | 0.000 | 0.300 | +0.300 |
+| F1 — `reaction` | 0.111 | 0.647 | +0.536 |
+
+**The same baseline with bare label names** (no `label_definitions.txt`;
+`python baseline.py --definitions no_definitions.txt --out
+baseline_results_bare_names.json --trained results.json`). Run on purpose, to
+measure what the definitions were worth:
+
+| Measure | Baseline (bare names) | Trained | Difference |
+|---|---|---|---|
+| Overall accuracy | 0.500 | 0.500 | +0.000 |
+| Macro F1 | 0.437 | 0.464 | +0.027 |
+| F1 — `analysis` | 0.182 | 0.444 | +0.263 |
+| F1 — `hot_take` | 0.485 | 0.300 | -0.185 |
+| F1 — `reaction` | 0.643 | 0.647 | +0.004 |
+
+**What my definitions were worth to the baseline: −0.194 accuracy.** The
+definitions made the zero-shot model *worse*. Its predictions show why:
+
+| Baseline prompt | Predicted `analysis` | Predicted `hot_take` | Predicted `reaction` |
+|---|---|---|---|
+| With definitions | 32 | 0 | 4 |
+| Bare names | 1 | 21 | 14 |
+
+With definitions it called 32 of 36 posts `analysis` and never once said
+`hot_take`. All three definitions are about F1, but only `analysis` starts by
+saying so ("an argument or explanation about F1…"), and every post in the set is
+about F1 — so that hypothesis is "entailed" by nearly everything. The other two
+definitions do their work with negations ("with *no* checkable support
+offered", "with *no* general claim to argue with"), and an entailment model
+reads the topic words and largely ignores the "no". The definitions were
+written for a person; as a prompt they reward the one label whose wording
+matches the topic.
+
+Runtime: each baseline run took about 27 seconds for 36 posts on the laptop CPU
+(model load included, two runs side by side). The trained DistilBERT scores the
+same 36 posts in well under a second. It's slower but nowhere near "a few
+seconds per post" on this machine.
 
 **What I predicted before I looked:**
 <!-- Milestone 1 asks you to write this BEFORE seeing the trained numbers. A
@@ -381,6 +424,27 @@ against it, label by label, which nothing had shown me yet.
 **What the gap actually means:**
 <!-- If the baseline matched your trained model, your fine-tuning added
      nothing — and that is a real finding, not a failure. Say it plainly. -->
+
+**How the prediction did:** right on `reaction` (+0.536, the biggest gap in
+the table). On `analysis` it was right in the letter but for the wrong reason.
+The baseline did come closest there, and even edged ahead (0.476 vs 0.444), but
+not by spotting checkable details: it called almost *everything* `analysis`, so
+its recall was 1.00 and its precision 0.31. That is a label it guessed, not one
+it found.
+
+**What the gap means:**
+
+- Against the baseline as the brief defines it (definitions as the prompt),
+  fine-tuning bought +0.194 accuracy and +0.268 macro F1, nearly all of it on
+  `reaction` and `hot_take`, the two labels the zero-shot prompt couldn't tell
+  apart from `analysis`.
+- **Against the bare-names baseline, fine-tuning added nothing on accuracy:**
+  both are 0.500 on the same 36 posts. The trained model is better on
+  `analysis` (+0.263) and worse on `hot_take` (−0.185), so the two models are
+  making *different* mistakes at the same rate rather than one being better.
+- Taken together: 164 training posts taught DistilBERT about as much as the
+  bare words "analysis / hot_take / reaction" give a general model for free.
+  This is seed 42 only. The three-seed run below says whether 0.500 is typical.
 
 
 

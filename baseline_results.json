@@ -1,0 +1,214 @@
+{
+  "model": "facebook/bart-large-mnli",
+  "n": 36,
+  "seed": 42,
+  "held_out": true,
+  "used_definitions": true,
+  "scores": {
+    "n": 36,
+    "accuracy": 0.3055555555555556,
+    "f1_macro": 0.19576719576719578,
+    "per_label": {
+      "analysis": {
+        "precision": 0.3125,
+        "recall": 1.0,
+        "f1": 0.47619047619047616,
+        "support": 10
+      },
+      "hot_take": {
+        "precision": 0.0,
+        "recall": 0.0,
+        "f1": 0.0,
+        "support": 12
+      },
+      "reaction": {
+        "precision": 0.25,
+        "recall": 0.07142857142857142,
+        "f1": 0.11111111111111112,
+        "support": 14
+      }
+    }
+  },
+  "predictions": [
+    {
+      "text": ">  This change is gonna screw with teams that don\u2019t do well on hards (cough merc cough)\u2026\n\nSo Perez, Hamilton and Russel out in Q1 now :D",
+      "gold": "reaction",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Incredible performance from both Norris and Piastri! ",
+      "gold": "reaction",
+      "predicted": "analysis"
+    },
+    {
+      "text": "There can't be more than one GP with the same name, which is why we've had names like the Luxembourg, San Marino, European, Pacific GPs, etc. ",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Damn, Lawson knocking out Max in Q2... Something really went wrong at RB. And Alpha Tauri will have a hard choice somewhere this year. Lawson seems quite competitive, he deserves a seat. How patient will they be with Yuki if a rookie is threatening him like this",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Russell confirms that the sun was in the eye in on the straight after turn 2. Could be why both perez and sainz did not realise that they were drifting towards each other",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "That would've been driver of the day for me too. From 19th to 8th in the first half of the race. He needs to make fewer mistakes like these. Then again, I guess he hasn't had much experience with a car that can overtake others.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "There was a message about an unsafe release that was deemed no further investigation necessary. Don't think it was shown on F1TV either.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Yeah I kind of agree. Norris should have eaten antonelli and sainz even today. He also bottled the start (again).",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Yes, on the surface it might look predictable with Verstappen so much better than the rest, but this season there are often battles/unpredictability for up to p2. ",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Piastri pitting again? Edit: ah, was his first\n\nDamn that was bad timing",
+      "gold": "reaction",
+      "predicted": "analysis"
+    },
+    {
+      "text": "I get what you're saying but Lawson was immediate box office in f2 and then (almost) won super formula and DTM. Doohan had his moments. He wasn't bad.\n\nTbf Sergeant's junior career was impressive, maybe less so I'm f2. de Vries was worse overall IMHO.\n\nMazepin was pure shit in f2 and pure shit in f1 because you cannot polish a turd.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Yep, Max finished the race 28 seconds ahead of Ricciardo in P8. He created that gap in 12 laps since the final SC. Haas could capitalize on rain and earn points, but winning the race? No way.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Totally. No one's fault but his own tho. And his teammate had a such great weekend in comparison. George made such smart decisions in the sprint, and then when it came to the race, he just kept his head down and did what needed done. Was awesome to see! Totally deserved to finish out front of Hamilton.",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Out of the last few races I think this was one of the better ones, it had several fun moments.\n\nAlso, please fix your qualifying Checo, you\u2019re killing me here",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Plenty of things in F1 are random checks. Weighing the cars during quali is random. The randomness is enough of a deterrent that teams do not run cars below the minimum weight. But things like plank wear should be checked for all because the teams cannot accurately know how much the plank is worn especially on sprint weekends.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "While taking each other out of the points wasn't on my bingo card for the event, I was enjoying the fight up until that point. imo while it felt like Lando had the advantage the overtake wasn't guaranteed. Started getting '21 vibes - if they keep this up...\n\n(Still want to see Albon get a podium at RBR though - rrrobbed.)",
+      "gold": "reaction",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Max is 15 second up the road. I was hoping for a better year with some actual racing involved. \n\nAh well. Guess I\u2019ll try again in 2026 with the rule changes. ",
+      "gold": "reaction",
+      "predicted": "analysis"
+    },
+    {
+      "text": "We almost got road hazzards with the ballsy groundhogs popping up",
+      "gold": "reaction",
+      "predicted": "analysis"
+    },
+    {
+      "text": "What a race, I was glued to the screen from the start to the VSC period. Oscar's overtake and defense were brilliant, Leclerc's defense against Perez before the crash was unbelievable too. What a race and racecraft.",
+      "gold": "reaction",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Albon continues his mega season. Perez is gone mentally at the moment, don't know what has happened to him over the past few months.",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "A race where cars cannot pass each other is called a parade\n\nMonaco should be a specialty race, maybe a clock race of 20 laps with only 5 cars on the track or so",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Race was alright until that safety car made it spicy. Wonder why it took so long to pull into the pits - we could've had at least 1 extra lap of racing.\n\nMega 10 points for Hulk and Sauber. Watching him overtake a Ferrari was surreal.\n\nLeclerc's risky tire strategy yesterday worked out well today.\n\nHadjar with another strong points finish.\n\nAlonso finally with points on board.\n\n10s penalty for Verstappen seems lenient. He got 3 penalty points for it apparently and with 11 penalty points is 1 point away from a race ban.\n\nAnother engine failure for Antonelli is bizarre.\n\nIt's a shame that Lawson wasn't able to get a point after all that brawling.",
+      "gold": "reaction",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Alonso is 3rd, stroll 19th (and by a mile)\n\nJust get stroll out of there, honestly",
+      "gold": "hot_take",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Today's race was quite exciting! It seems like there hasn't been much passing the previous few races, but there was plenty throughout the 71 laps today. \nIf the rest of season is like today, I'd be happy. However, I know it is very track dependent on whether there are amply passing opportunities or not.",
+      "gold": "reaction",
+      "predicted": "analysis"
+    },
+    {
+      "text": "O shiiitttt not the second Ferrari!\n\nPiastri chose violence there.",
+      "gold": "reaction",
+      "predicted": "analysis"
+    },
+    {
+      "text": "The front of the field has not been exciting this year. I feel like the mid-pack battle has been one of the best I remember in years.\n\nI also love seeing Hamilton struggle with a car and Russell put pressure on him. I\u2019m not a Hamilton fan at all but I have to say he has had some tremendous drives this year.\n\nAlonso\u2019s performance this year has also been very exciting to watch. ",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Everybody boxing to get fastest lap and Norris simply tries to go for it with his old hards lol",
+      "gold": "reaction",
+      "predicted": "analysis"
+    },
+    {
+      "text": "That message from Toto seemed like a polite way of saying \u201cshut the f up and drive\u201d ",
+      "gold": "reaction",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Formula E has had some bangers around here believe it or not, but maybe that's because of their gimmicks. I don't really follow FE but I've caught a couple of Monaco E-Prixes.",
+      "gold": "hot_take",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Austrian commentary just said that Marko had a meeting with Lawson today. Apparently either him or Tsunoda will be out of Red Bull's F1 program next year, as they need to make room for Arvin Lindblad.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Congratulations to Lewis. It has to feel amazing to win at home after a drought in his successful career. Well done. ",
+      "gold": "reaction",
+      "predicted": "reaction"
+    },
+    {
+      "text": "Verstappen overtaking Checo without DRS as if making a point. Ridiculous.\n\nEDIT: my bad, he definitely had time to open it.",
+      "gold": "reaction",
+      "predicted": "analysis"
+    },
+    {
+      "text": "The track feels too narrow for the cars these days, similar (but not to the extent of) Monaco. Unlike Monaco, there's enough surrounding space to expand the width of the track.",
+      "gold": "hot_take",
+      "predicted": "analysis"
+    },
+    {
+      "text": "Pretty much every Motorsport body does it this way iirc. Nascar doesn\u2019t inspect every car after every race in excruciating detail, they just spot check anything they think could have been manipulated. ",
+      "gold": "analysis",
+      "predicted": "analysis"
+    },
+    {
+      "text": "US laws don't apply outside of the US.\n\nI get that you're really into your nationalism and American exceptionalism over there, but surely you understand that.\n\nUS law is as relevant here as Japanese law.",
+      "gold": "hot_take",
+      "predicted": "reaction"
+    },
+    {
+      "text": "I don't think it's that straight forward. Norris dove so deep he almost went off track himself. He didn't leave Verstappen space so Verstappen had to go off track. Implying Norris had the right for the position sets a dangerous precedent where you can simply divebomb deep into the corner, cut off the entire corner and the person you want to pass has to give the position to you.",
+      "gold": "analysis",
+      "predicted": "analysis"
+    }
+  ]
+}
