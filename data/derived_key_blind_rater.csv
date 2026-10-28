@@ -1,0 +1,31 @@
+id,label,rationale
+sp_001,analysis,"Rule 1: the 40-second versus four-minute split comparison is the argument for ""depth changed, the front didn't""."
+sp_002,analysis,"Rule 1: the eleven-week tracking and 6-8 s/mile slowdown is the evidence the conclusion rests on, caveats included."
+sp_003,analysis,Rule 1: the 2019 scoring change and two B-over-A finishes are the load-bearing facts for the turnout-rewarding conclusion.
+sp_004,analysis,Rule 1: the split of the field at 1:45 and the near-identical slowdown after 18 miles is the argument against the hill explanation.
+sp_005,analysis,"Rule 1: the 2% then another 2% in the same pair, with mileage as the only change, is the checkable reasoning against the plate-only story."
+sp_006,analysis,Rule 1: the 41% versus 26% first-timer figures from entry lists carry the explanation for the change in the field.
+sp_007,analysis,"Rule 1: the matched-effort 4C versus 24C comparison and 90 seconds over six miles is the argument that heat costs more than ""a bit""."
+sp_008,analysis,"Rule 1: the 18-23% non-start rate every year since 2012 is the evidence for ""base rate, not bad luck""."
+sp_009,analysis,"Rule 1: the 2021 remeasurement (60 m long, about 12 s at club pace) is why pre- and post-change PBs are not comparable."
+sp_010,analysis,Rule 1: the three-runner same-session result within 10 seconds is the evidence for shoe effect being smaller than the noise.
+sp_011,hot_take,"Rule 2: a general claim about how the world works with no support offered, and not about the writer."
+sp_012,hot_take,Rule 2: a confident general assertion about heart rate zones with nothing backing it.
+sp_013,hot_take,"Rule 2: a general claim about the club and the Tuesday session, heated but unsupported, so it stays hot_take."
+sp_014,hot_take,"Rule 1: the 3% is decoration on a pre-reached ""obviously the shoes are the whole story"" conclusion, matching the staff's first example."
+sp_015,hot_take,Rule 2: a sweeping unsupported claim about training plans in general.
+sp_016,hot_take,"Rule 1: the 90-minute figure is a flourish on an asserted rule, with no evidence offered, so it is a general unsupported claim."
+sp_017,hot_take,Rule 2: a confident claim about the state of road racing with a vague year and no support.
+sp_018,hot_take,"Rule 1: the 8-minute-mile threshold is a number on an assertion, not evidence, so it is an unsupported general claim."
+sp_019,hot_take,"Rule 2: a general assertion about everyone's relationship to the long run, delivered as fact with no support."
+sp_020,hot_take,"Rule 2: a general claim about the forum's injury threads, unsupported."
+sp_021,reaction,"Rule 2: the writer's own feeling right after a result, with no general claim or argument."
+sp_022,reaction,"Rule 2: the writer's immediate experience of a cancelled race, feeling rather than argument."
+sp_023,reaction,"Rule 2: the writer's own first run back and how they feel about it, with no claim about the world."
+sp_024,reaction,Rule 2: the writer's physical response to something happening right now.
+sp_025,reaction,"Rule 2: the writer's own just-finished blow-up and how it felt, with the pace band as colour rather than an argument."
+sp_026,reaction,Rule 2: the writer's emotional response to something that just happened to them.
+sp_027,reaction,"Rule 3: the 20 degrees is colour on the writer's own experience, not a load-bearing fact in an argument, so recency plus feeling decides it."
+sp_028,reaction,"Rule 2: the writer's own feeling about their third DNF, explicitly not making a claim."
+sp_029,reaction,"Rule 2: the writer's immediate realisation about their own shoes, with no general assertion or argument."
+sp_030,reaction,"Rule 2: the writer's own just-happened sign-up and immediate regret, with no argument."

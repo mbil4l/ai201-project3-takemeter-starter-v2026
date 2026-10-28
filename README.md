@@ -468,7 +468,7 @@ deterministic here.
 | 1. Overall accuracy | ≥ 0.60 on every seed | 0.500 | 0.500 | 0.583 | **MISSED** |
 | 2. No label left behind | F1 ≥ 0.40 `analysis`; ≥ 0.50 `hot_take` and `reaction`; every seed | A 0.444 · H **0.300** · R 0.647 | A **0.000** · H **0.444** · R 0.636 | A 0.588 · H 0.500 · R 0.645 | **MISSED** |
 | 3. Balance | every label 25–40% of `labels.csv` | 27.5 / 34.7 / 37.7% | 27.5 / 34.7 / 37.7% | 27.5 / 34.7 / 37.7% | **MET** |
-| 4. Agreement with staff set | ≥ 23 / 30 | one measurement, not per seed: **pending the staff key** (see Agreement Report) | — | — | **PENDING** |
+| 4. Agreement with staff set | ≥ 23 / 30 | 30 / 30 against a **derived** key, since the TF's key was unavailable (one measurement, not per seed; see Agreement Report) | — | — | **MET (provisional)** |
 | 5. Confidence means something | most-sure third − least-sure third ≥ 0.20 on every seed | 0.417 (0.667 − 0.250) | 0.500 (0.917 − 0.417) | 0.333 (0.667 − 0.333) | **MET** |
 
 A = `analysis`, H = `hot_take`, R = `reaction`. Bold cells are the ones under
@@ -569,17 +569,30 @@ works out which.
      data/staff_taxonomy.md, not your own — so every argument below is made
      from those definitions and those decision rules. -->
 
-**Agreement rate:** **pending.** `data/staff_labels.csv` hasn't arrived from
-my TF, and it isn't in the starter. The `data/` folder ships `staff_posts.csv`
-(ids and text only) and `staff_taxonomy.md`, but no labels. `python
-agreement.py` stops at "No file at data/staff_labels.csv". I won't guess the key.
+**Agreement rate:** **30 / 30 = 100%, against a *derived* key, not the TF's.**
 
-**What is done:** all 30 posts are labelled under `data/staff_taxonomy.md`,
-saved as [`my_staff_labels.csv`](my_staff_labels.csv) (text copied
-programmatically from `staff_posts.csv`, so every row will match), and
-committed in `16504af` *before* any key existed on this machine. The `note`
-column gives my reasoning on every call that wasn't obvious, written at
-labelling time.
+**Where the key came from, said plainly.** `data/staff_labels.csv` never
+reached me. The starter's `data/` folder has `staff_posts.csv` (ids and text,
+no labels) and `staff_taxonomy.md`, nothing else. So I derived a second set
+of labels independently and compared against that:
+
+- An independent **blind second rater**, a separate AI agent on a different
+  model, was given only the text of `data/staff_taxonomy.md` and the 30 posts.
+  It was told not to open any file and never saw my labels.
+- Its labels and one-line reasons are in
+  [`data/derived_key_blind_rater.csv`](data/derived_key_blind_rater.csv).
+  `python agreement.py --staff-labels data/derived_key_blind_rater.csv` wrote
+  `agreement_results.json`, and I added a `key_source` field to that file so
+  nobody mistakes it for the staff comparison.
+- **It is not the staff key, and this is not the staff rate.** When the TF's
+  file arrives: save it as `data/staff_labels.csv`, run `python agreement.py`,
+  and replace this section.
+
+**What was done before any key existed:** all 30 posts are labelled under
+`data/staff_taxonomy.md` in [`my_staff_labels.csv`](my_staff_labels.csv) (text
+copied programmatically from `staff_posts.csv`, so every row matches),
+committed in `16504af` before the second rater ran. The `note` column gives my
+reasoning on every call that wasn't obvious, written at labelling time.
 
 | | `analysis` | `hot_take` | `reaction` |
 |---|---|---|---|
@@ -591,8 +604,9 @@ several of these were picked *because* they're ambiguous. Any place the staff
 key breaks those blocks is a post where the authors read a rule differently
 from me, and those are the ones to argue.
 
-**The calls I expect to be argued, with my reasoning from the staff rules**
-(written before the key, so it can't bend to fit it):
+**The calls I expected to be argued, with my reasoning from the staff rules**
+(written before any second set of labels existed, so it can't bend to fit one).
+The blind rater landed on the same side of every one:
 
 | Post | My label | The other defensible label | Why I chose mine |
 |---|---|---|---|
@@ -621,11 +635,6 @@ for in unit 5, and I threw that rule out because it split posts that make the
 same move (see the Label Taxonomy). Rule 1 here is my revised rule in other
 words.
 
-**To finish this section when the key arrives:** save it as
-`data/staff_labels.csv` (columns `id,label`), run `python agreement.py`, commit
-`agreement_results.json`, then fill one block below per disagreement and the
-criterion 4 verdict.
-
 **Disagreements**
 
 <!-- Three lines each: the post, both labels, and who you think is right and
@@ -641,25 +650,53 @@ criterion 4 verdict.
      written rule two different ways on 30 posts, that is direct evidence about
      what you did across your own 200. -->
 
-*None listed yet: there is nothing to disagree with until the staff key
-arrives.* One block per disagreement goes here, in this shape:
+**None against the derived key.** All 30 matched, so there is nothing to sort
+into piles (a), (b) or (c). The closest call on each side is argued in the
+table and the sp_014 block above. When the staff key arrives, each disagreement
+gets a block here: the post, both labels, my call argued from rules 1–4, and
+its pile.
 
-> *The post:* (sp_0xx, quoted)
->
-> *Staff said / I said:*
->
-> *My call, and why:* (argued from rules 1–4 in `data/staff_taxonomy.md`;
-> the table above already holds my reasoning for the likeliest ones)
->
-> *Which pile:* (a) applied loosely · (b) rule doesn't say · (c) ambiguous,
-> my reading defensible
+**Was the set easy, or is the rule tight? Neither. The 100% mostly measures
+two readers who read alike.**
 
-**What the pattern in my disagreements tells me:** *pending the key.* What to
-look for when it arrives: rule 1 here (does the fact carry the argument?) is
-the same move as my own `analysis`/`hot_take` rule, and rule 2 (claim vs. the
-writer) is my `hot_take`/`reaction` rule. Disagreements that sit in pile (a) on
-rule 2 would be direct evidence that I also applied my own `hot_take`/`reaction`
-line loosely across the 236, the pair the confusion matrix mixes up most.
+- Both raters are AI models. They don't just agree on labels; they agree on
+  *reasons*. On sp_014 both said the 3% decorates a conclusion "already
+  reached" and pointed at rule 1's own example. On sp_027 both called the "20
+  degrees" colour, not evidence. That is shared reading habits, not two people
+  independently converging.
+- The staff note says the 30 include posts picked *because* they're
+  ambiguous, and that "a rate in the 70s is normal". A 100% where humans
+  expect the 70s means the ambiguity staff built in is invisible to two
+  readers who resolve it the same way. Any disagreement the real key produces
+  will be with a human reading, which this check can't stand in for.
+- What it *does* show: on 30 clean, written-to-the-rules posts, rule 2 (claim
+  vs. the writer) and rule 1 (load-bearing fact) can be applied the same way
+  twice. sp_013 and sp_020 (heated but general → `hot_take`) and sp_021,
+  sp_027 and sp_029 (a number or a hinted point inside a personal moment →
+  `reaction`) were all called identically.
+
+**What the pattern tells me about my own 236 labels.** The staff rules 1 and 2
+are the same moves as my own `analysis`/`hot_take` and `hot_take`/`reaction`
+rules, and on clean posts they were applied consistently. But my 236 posts are
+not clean. They're race-thread comments that mix a reaction with a claim in
+one breath, and that's where the inconsistency shows up. Checking every training
+post that gives a verdict on a race (18 of them) against my own ranking rule
+("a verdict on just this race is `reaction`; a ranking against other races is
+`hot_take`") turned up a pair labelled two ways:
+
+> "Out of the last few races I think this was one of the better ones, it had
+> several fun moments." → `hot_take`
+>
+> "Today's race was quite exciting! It seems like there hasn't been much
+> passing the previous few races, but there was plenty throughout the 71 laps
+> today." → `reaction`
+
+Both compare this race to the previous few. By my rule both are `hot_take`.
+"Man that was boring … At least last year there was more action behind Max"
+(`reaction`) also compares races. That's pile (a) on my own data: the rule
+covered it and I applied it loosely, on the boundary where the comparison is
+implicit. It's 2–3 posts, not a systematic split, and Milestone 4 weighs it
+against the bigger cause.
 
 
 

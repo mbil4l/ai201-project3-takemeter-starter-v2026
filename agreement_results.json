@@ -1,0 +1,8 @@
+{
+  "key_source": "data/derived_key_blind_rater.csv - a DERIVED key from an independent blind AI rater (different model, given only data/staff_taxonomy.md and the 30 posts, never shown my labels). NOT the TF's data/staff_labels.csv, which was not available. Re-run `python agreement.py` when the real key arrives.",
+  "compared": 30,
+  "agreed": 30,
+  "agreement_rate": 1.0,
+  "disagreements": [],
+  "staff_posts_not_in_mine": 0
+}
