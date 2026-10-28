@@ -363,6 +363,21 @@ and are marked `pre-labelled` in the `note` column. The 20 rows in
 <!-- Milestone 1 asks you to write this BEFORE seeing the trained numbers. A
      prediction made afterwards isn't one. -->
 
+*Written and committed before `baseline.py` was run (see the commit history).*
+
+The trained model will beat the baseline clearly on `reaction` — short
+live-thread lines and jokes are a register a model only learns from examples,
+and "a response to a moment … with no general claim" is a negative definition
+an entailment model has little to grip — while the baseline will come closest
+on `analysis`, because "a specific, checkable detail (a lap, gap, position,
+points total…)" is something a general model can spot from the definition
+alone.
+
+One honest caveat: the unit 5 notebook printed the trained model's seed-42
+accuracy (0.500) when it wrote `results.json`, so the trained column was not a
+complete unknown. The prediction above is about where the *baseline* would land
+against it, label by label, which nothing had shown me yet.
+
 **What the gap actually means:**
 <!-- If the baseline matched your trained model, your fine-tuning added
      nothing — and that is a real finding, not a failure. Say it plainly. -->
