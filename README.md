@@ -1012,12 +1012,61 @@ show the model enough contrasting pairs to learn them.
 
 <!-- For each criterion still missed: what you'd do, and why you stopped. -->
 
+**Criterion 5 (confidence gap): MISSED on seed 42 after the fix (0.167 vs
+0.20).**
 
+- *What I'd do:* nothing to the model just to win back two posts in a third of
+  twelve. The band table shows the confidence now works. I'd write the
+  criterion differently next unit: thirds of 12 posts move in steps of 0.083,
+  so a 0.20 gap is a 2–3 post margin that one good split erases. A version
+  stated over the pooled three-seed predictions ("accuracy above 0.7
+  confidence beats accuracy below 0.5 by 0.20" — 0.78 vs 0.42 now) plus a
+  floor on absolute confidence would test what I meant. That would be a
+  criterion for a new unit, not a revision of this one. The original was
+  measurable and is MISSED.
+- *Why I stopped:* the brief allows one change. Any second change aimed at this
+  criterion (temperature scaling, more epochs) would be tuning against the
+  test splits.
+
+**Criterion 4 (agreement): provisional.** Not missed, but not settled either:
+it's 30/30 against a derived AI key because the TF's `data/staff_labels.csv`
+was unavailable. *What I'd do:* run `python agreement.py` on the real key the
+moment it arrives, adjudicate every disagreement in the Agreement Report, and
+re-call the verdict. *Why I stopped:* the real key is the one input I can't
+produce myself.
+
+**Still fragile even where MET:**
+
+- **Accuracy spreads 13.9 points across seeds** (0.611–0.750). Criterion 1 is
+  met with 1 post to spare on seed 42 (22/36 against a floor of 21.6). A
+  fourth seed could easily miss it. *What I'd do:* add posts. 36 test posts at
+  2.8 points each is the real ceiling on how precisely any of this can be
+  measured. *Why I stopped:* more data is a second change.
+- **`hot_take` F1 is 0.522 and 0.526 on two seeds**, a hair over 0.50. Its
+  remaining errors (Stretch 2) are the ranking rule and "a claim that reaches
+  past its detail". *What I'd do next:* the improvement I didn't pick. Fix the
+  2–3 inconsistent race-verdict rows, then add ~30 contrasting pairs on
+  exactly those two rules (a race verdict vs. a race ranking; a stat that
+  carries a claim vs. one that decorates it). *Why I stopped:* one change per
+  unit, and this one needed the model to be trained enough to show it first.
+- **The unaided cold round from unit 5 was never done.** `cold_round.csv`
+  still has blank labels, so every one of my 236 labels came through AI
+  pre-labelling, and the only consistency evidence is AI against AI. The cold
+  round is twenty posts and is the cheapest human check left.
 
 **The gap between what I meant my labels to capture and what the model
 learned:**
 <!-- Two sentences. Your confusion matrix is the evidence. -->
 
+I meant the labels to capture *what a post does with its claim*: whether a
+detail carries it, whether there's a general claim at all. The 3-epoch model
+learned *where and how long the post is*, sending 62% of everything (42 of 55
+live-thread posts) to `reaction`, and the 10-epoch model learned *whether a
+detail is present*. The summed matrix shows it: `analysis` → `reaction` fell
+from 12 to 2, but 7 real `hot_take`s, most of them "a take with a number in
+it", are now called `analysis`. The rule that defines my hardest boundary,
+"does the claim reach further than the detail can carry?", is the part it
+still hasn't learned.
 
 
 <!-- ═════════════════════════════════════════════════════════════════════
@@ -1037,18 +1086,19 @@ learned:**
 
      SUBMISSION CHECKLIST — unit 6
 
-       [ ] Baseline vs. Trained table, with your prediction written beforehand
-       [ ] Run Log — Before, five criteria across three seeds
-       [ ] Confusion matrix TYPED AS A MARKDOWN TABLE
-       [ ] A verdict on every criterion
-       [ ] A diagnosis for every miss, using the agreement report as evidence
-       [ ] Agreement Report with every disagreement adjudicated
-       [ ] One improvement, with Run Log — After
-       [ ] What's Still Broken
-       [ ] results_three_seeds_before.json, results_three_seeds_after.json,
+       [x] Baseline vs. Trained table, with your prediction written beforehand
+       [x] Run Log — Before, five criteria across three seeds
+       [x] Confusion matrix TYPED AS A MARKDOWN TABLE
+       [x] A verdict on every criterion
+       [x] A diagnosis for every miss, using the agreement report as evidence
+       [~] Agreement Report with every disagreement adjudicated
+           (0 disagreements vs a DERIVED key; re-run on the TF's key)
+       [x] One improvement, with Run Log — After
+       [x] What's Still Broken
+       [x] results_three_seeds_before.json, results_three_seeds_after.json,
            baseline_results.json and
            agreement_results.json committed
-       [ ] At least four new commits
+       [x] At least four new commits
        [ ] The SAME repository URL as last unit
 
      Do not delete and recreate this repository.
