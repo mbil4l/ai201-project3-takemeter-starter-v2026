@@ -340,6 +340,52 @@ with an AI tool from the definitions and decision rules in the Label Taxonomy,
 and are marked `pre-labelled` in the `note` column. The 20 rows in
 `cold_round.csv` are for the unaided round and get marked `cold` when merged.
 
+### Unit 6 — disclosure
+
+The unit 6 work was carried out with **Claude Code** (Anthropic's coding
+agent) working in this repo at my request. It ran `baseline.py` both ways,
+executed the notebook's sections 1–7 before and after the improvement, wrote
+and ran `error_analysis.py`, labelled the 30 staff posts in
+`my_staff_labels.csv`, produced the derived agreement key through a separate
+blind AI rater, and drafted the unit 6 write-up. Every number in the unit 6
+sections comes from a committed output file.
+
+**Moment 3 (unit 6): spotting the pattern in the errors**
+
+- *What I asked for:* per-post predictions for all three seeds, and the
+  pattern in the `hot_take` → `reaction` misses.
+- *What came back:* the notebook's own hint ("a direction like that usually
+  points at your labelling") pointed at labels. The per-post data said
+  otherwise. No prediction across 108 was above 0.502 confidence, training
+  loss ended barely under chance, 42 of 55 live-thread posts were called
+  `reaction`, and `analysis` leaked to `reaction` just as `hot_take` did.
+- *What I changed:* the diagnosis went from "my `hot_take`/`reaction` labels"
+  to "an undertrained model", and the improvement from relabelling to more
+  epochs. The labelling check still ran, and found a real but small
+  inconsistency (2–3 race-verdict rows).
+
+**Moment 4 (unit 6): the agreement key**
+
+- *What I asked for:* the agreement check, with the TF's
+  `data/staff_labels.csv` unavailable.
+- *What came back:* a key from a blind second rater (a different AI model,
+  given only the staff taxonomy and the posts). It matched my 30 labels
+  exactly, with near-identical reasons.
+- *What I changed:* I report it as a derived key, never as the staff rate,
+  and read the 100% as two AI readers sharing habits rather than as proof my
+  labelling is tight. Criterion 4's verdict is marked provisional until the
+  real key arrives.
+
+**Moment 5 (unit 6): why the baseline collapsed**
+
+- *What I asked for:* an explanation of why the definitions prompt scored
+  worse than bare label names.
+- *What came back:* only the `analysis` definition opens with the topic ("an
+  argument or explanation about F1"), which every post entails. The other two
+  rely on "no …" clauses that an entailment model largely ignores.
+- *What I changed:* I report both baseline runs, and use the gap (−0.194) as a
+  finding about writing definitions for a model versus for a person.
+
 <!-- ═══════════════════════ UNIT 6 — THE TEST ═══════════════════════
 
      Don't fill these in during unit 5.
@@ -824,18 +870,139 @@ is the model ever actually confident? (2) **a per-label error write-up for
 
 ### Run Log — After
 
+Same device (`cpu`, PyTorch `2.14.1+cpu`), same seeds, same 36-post test
+splits; only `EPOCHS` changed. About 2.6 minutes of training per seed. Output:
+`results_three_seeds_after.json`. Re-running the whole notebook also re-ran
+section 5, which rewrote `results.json` with a 10-epoch seed-42 model. I
+restored the committed unit 5 file, so `results.json` is still the unit 5
+evidence. Section 5's printed output in the notebook now shows the 10-epoch run.
+
 | Criterion | Target | Seed 42 | Seed 7 | Seed 2024 | Verdict |
 |---|---|---|---|---|---|
-| 1.  |  |  |  |  |  |
-| 2.  |  |  |  |  |  |
-| 3.  |  |  |  |  |  |
-| 4.  |  |  |  |  |  |
-| 5.  |  |  |  |  |  |
+| 1. Overall accuracy | ≥ 0.60 on every seed | 0.611 | 0.750 | 0.639 | **MET** |
+| 2. No label left behind | F1 ≥ 0.40 `analysis`; ≥ 0.50 `hot_take` and `reaction`; every seed | A 0.636 · H 0.522 · R 0.667 | A 0.667 · H 0.741 · R 0.833 | A 0.571 · H 0.526 · R 0.750 | **MET** |
+| 3. Balance | every label 25–40% of `labels.csv` | 27.5 / 34.7 / 37.7% | 27.5 / 34.7 / 37.7% | 27.5 / 34.7 / 37.7% | **MET** (labels unchanged) |
+| 4. Agreement with staff set | ≥ 23 / 30 | 30 / 30 against the derived key (unchanged; training doesn't touch it) | — | — | **MET (provisional)** |
+| 5. Confidence means something | most-sure − least-sure third ≥ 0.20, every seed | **0.167** (0.750 − 0.583) | 0.500 (0.917 − 0.417) | 0.333 (0.750 − 0.417) | **MISSED** |
+
+**Side by side:**
+
+| Measure | Before: 42 / 7 / 2024 | After: 42 / 7 / 2024 | Change in the mean |
+|---|---|---|---|
+| Overall accuracy | 0.500 / 0.500 / 0.583 | 0.611 / 0.750 / 0.639 | 0.528 → 0.667 (+0.139) |
+| Macro F1 | 0.464 / 0.360 / 0.578 | 0.608 / 0.747 / 0.616 | 0.467 → 0.657 (+0.190) |
+| F1 — `analysis` | 0.444 / 0.000 / 0.588 | 0.636 / 0.667 / 0.571 | 0.344 → 0.625 |
+| F1 — `hot_take` | 0.300 / 0.444 / 0.500 | 0.522 / 0.741 / 0.526 | 0.415 → 0.596 |
+| F1 — `reaction` | 0.647 / 0.636 / 0.645 | 0.667 / 0.833 / 0.750 | 0.643 → 0.750 |
+| Confidence gap (thirds) | 0.417 / 0.500 / 0.333 | 0.167 / 0.500 / 0.333 | — |
+| Final training loss | 1.00 / 1.01 / 1.02 | 0.33 / 0.39 / 0.34 | chance = 1.099 |
+| Verdicts | 2 MET, 2 MISSED, 1 provisional | 3 MET, 1 MISSED, 1 provisional | — |
+
+**Confusion matrix after**, seed 42, as section 7 printed it:
+
+| true \ predicted | analysis | hot_take | reaction |
+|---|---|---|---|
+| **analysis** | 7 | 3 | 0 |
+| **hot_take** | 2 | 6 | 4 |
+| **reaction** | 3 | 2 | 9 |
+
+All three seeds summed (108 predictions; before in brackets):
+
+| true \ predicted | analysis | hot_take | reaction |
+|---|---|---|---|
+| **analysis** | 20 (9) | 8 (9) | 2 (12) |
+| **hot_take** | 7 (3) | 21 (13) | 8 (20) |
+| **reaction** | 7 (3) | 4 (4) | 31 (35) |
 
 **Did it help, and how do I know:**
 
 <!-- If it didn't, say so. Relabelling that didn't help is a genuinely
      interesting result and earns full credit. -->
+
+**Yes for what it targeted, at the cost of one criterion.** The two criteria
+the diagnosis pointed at, 1 and 2, went from MISSED to MET on all three seeds,
+and the evidence says the cause was the one diagnosed:
+
+- **The model now fits its data.** Training loss went from 1.01 to 0.33–0.39,
+  and validation loss fell every epoch to 0.69 / 0.87 / 0.68, flattening
+  without turning back up. So 10 epochs didn't overfit.
+- **The default-to-`reaction` lean is gone.** `reaction` guesses fell from 67
+  to 41 of 108 (truth: 42), live-thread posts sent to `reaction` from 42 to 32
+  of 55, and `analysis` → `reaction` from 12 to 2. `analysis` recall went from
+  0.30 to 0.67, and seed 7 now predicts it (F1 0.000 → 0.667).
+- **`hot_take` → `reaction` fell from 20 to 8.** 9 of the 20 old misses are
+  now right. Section 7 now calls the remaining confusion "roughly symmetric":
+  4 one way, 2 the other on seed 42, instead of 7 against 1.
+- **Against the baseline on the same 36 posts** (seed 42's split is
+  `test_split.csv`): 0.611 after, against 0.306 for the definitions baseline
+  and 0.500 for the bare-names one. Before, fine-tuning tied the bare-names
+  baseline; now it beats it by 4 posts.
+
+**What it broke: criterion 5.** On seed 42 the confident third still scores
+0.750, but the unsure third rose from 0.250 to 0.583, so the gap shrank to
+0.167, two posts short of 0.20. This isn't the confidence getting worse. By
+band, over all 108 predictions, it now means something it never did before:
+
+| Confidence | Before: posts (accuracy) | After: posts (accuracy) |
+|---|---|---|
+| under 0.5 | 107 (0.52) | 19 (0.42) |
+| 0.5 – 0.7 | 1 (1.00) | 38 (0.63) |
+| 0.7 – 0.9 | 0 | 51 (0.78) |
+
+Before, every prediction but one sat under 0.5, so the "thirds" were slices of
+noise. After, accuracy climbs with confidence in every band. The criterion
+missed on one seed because the *unsure* posts got better. But the criterion
+says "every seed", the 0.20 was chosen as the smallest gap I'd act on, and
+0.167 is under it. MISSED.
+
+**One new caveat:** accuracy now spreads 13.9 points across seeds (0.611 to
+0.750), over the notebook's 10-point line, up from 8.3. Seed 7's 0.750 is the
+outlier, and its split was the one the old model did worst on. With 36 test
+posts at 2.8 points each, a spread of five posts is what this dataset size
+gives. The improvement is real (every seed went up by 3–9 posts), but the
+exact level isn't pinned down to better than about ±7 points.
+
+#### Stretch 1: confidence check
+
+Declared above. The band table is the check. Before the change, confident
+predictions weren't right more often than unsure ones in any useful sense: the
+model was never confident (max 0.502 of 108), and its "most confident third"
+was its default label on short live posts. After, confidence is informative.
+Predictions at 0.7–0.9 are right 78% of the time, under 0.5 only 42%. Mean
+confidence is 0.686 when right and 0.605 when wrong. Nothing is above 0.86, so
+it's still cautious, but it's ranking its own reliability correctly. That's
+the property criterion 5 was written to catch, even though the thirds-gap
+missed on seed 42.
+
+#### Stretch 2: per-label error write-up for `hot_take`
+
+`hot_take` has the biggest off-diagonal in both matrices. Of its 36 test
+appearances across the seeds, 13 were right before and 21 after. The 13
+distinct posts still wrong after the fix fall into two groups:
+
+- **Race-weekend verdicts the model reads as `reaction` (6):** "Damn, Lawson
+  knocking out Max in Q2…", "Out of the last few races I think this was one of
+  the better ones…" (one of the rows I found labelled inconsistently),
+  "Couldn't agree more. Best race in years. Goosebumps…", "Yeah I kind of
+  agree. Norris should have eaten antonelli…", "Perez should have got P2 here
+  really…", and the Stroll post. These open with a reaction and make the claim
+  in passing. Two (Stroll, "Best race in years") were already hard cases in my
+  notes.
+- **`hot_take`s carrying a detail that the model reads as `analysis` (7):**
+  "This is the best race since the 2021 season", "…if the hards were just a
+  little less durable to make 2 stopping…", "Will Perez have a seat *next
+  race*?…", "My guess is they underestimated the cooling…", "Let's see how
+  aggressive he and Lewis get on lap 1…", and two more. These are exactly my
+  rule's "a `hot_take` with a number in it". The model learned that a date,
+  tyre or lap means `analysis`, not whether the claim reaches past it. Three
+  of the seven were called `reaction` before the fix and `analysis` after it.
+  The model got better at noticing details and hasn't learned my "does the
+  claim reach further?" test.
+
+So the remaining `hot_take` errors aren't a model defaulting any more. They
+sit on my two hardest written rules, the ranking rule and "a claim that
+reaches past its detail". Both are semantic, and 164 training posts don't
+show the model enough contrasting pairs to learn them.
 
 
 
